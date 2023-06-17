@@ -1,7 +1,7 @@
 
 import pytest
 from selenium.webdriver.common.by import By
-from page_objects.login_page import loginPage
+from page_object.login_page import loginPage
 
 @pytest.mark.login
 @pytest.mark.negative
