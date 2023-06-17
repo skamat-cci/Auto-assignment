@@ -1,9 +1,9 @@
 
 import pytest
 
-from page_objects.about_page import AboutPage
-from page_objects.dashboard_page import DashboardPage
-from page_objects.login_page import loginPage
+from page_object.about_page import AboutPage
+from page_object.dashboard_page import DashboardPage
+from page_object.login_page import loginPage
 
 
 @pytest.mark.login

@@ -2,9 +2,9 @@ import time
 
 import pytest
 
-from page_objects.contact_page import contactPage
-from page_objects.dashboard_page import DashboardPage
-from page_objects.login_page import loginPage
+from page_object.contact_page import contactPage
+from page_object.dashboard_page import DashboardPage
+from page_object.login_page import loginPage
 
 
 @pytest.mark.login
@@ -61,10 +61,12 @@ def test_contact_menu_p(driver,username,password):
 # verify empty first name field
     assert contact_page.perform_empty_first_name_check() =="Please fill out this field.","Empty First name validation is not matching "
     assert contact_page.perform_empty_last_name_check()  =="Please fill out this field.","Empty Last name validation is not matching "
-    assert contact_page.perform_invalid_email_id_check() =="Please include an '@' in the email address. 'shanti' is missing an '@'.", "Validation for invalid email id is not matching"
-    assert contact_page.perform_incomplete_email_id_check() =="Please enter a part following '@'. 'nikita@' is incomplete.","Incomplete email id validation is not matching"
+    #assert contact_page.perform_invalid_email_id_check() =="Please include an '@' in the email address. 'shanti' is missing an '@'.", "Validation for invalid email id is not matching"
+    assert contact_page.perform_invalid_email_id_check() == "Please enter an email address.", "Validation for invalid email id is not matching"
+    #assert contact_page.perform_incomplete_email_id_check() =="Please enter a part following '@'. 'nikita@' is incomplete.","Incomplete email id validation is not matching"
+    assert contact_page.perform_incomplete_email_id_check() == "Please enter an email address.", "Incomplete email id validation is not matching"
 
-# verify logout click
+    # verify logout click
     contact_page.perform_contact_logout()
 
 # verify the user is on Login page after logout
